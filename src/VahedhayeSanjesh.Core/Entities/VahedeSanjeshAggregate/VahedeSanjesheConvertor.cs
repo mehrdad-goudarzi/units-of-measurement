@@ -4,6 +4,7 @@ namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
 {
     public static class VahedeSanjesheConvertor
     {
+        // تبدیل واحد سنجش فرمول دار به یکدیگر
         public static double Convert(double value, VahedeSanjesheFormoldar from, VahedeSanjesheFormoldar to)
         {
             ValidateBodeAndazeGiri(from, to);
@@ -14,6 +15,7 @@ namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
             return valueDarVahedeFormoldar;
         }
 
+        // تبدیل واحد سنجش ضریبدار به یکدیگر
         public static double Convert(double value, VahedeSanjesheZaribdar from, VahedeSanjesheZaribdar to)
         {
             ValidateBodeAndazeGiri(from, to);
@@ -24,7 +26,8 @@ namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
             return valueDarVahedeFormoldar;
         }
 
-        public static void ValidateBodeAndazeGiri(VahedeSanjesh vahede1, VahedeSanjesh vahede2)
+        // بررسی یکی بودن بعد واحدهای سنجش که یکی باشد
+        private static void ValidateBodeAndazeGiri(VahedeSanjesh vahede1, VahedeSanjesh vahede2)
         {
             if (!vahede1.Bod.Equals(vahede2.Bod))
                 throw new InvalidVahedeSanjeshConvertException();
