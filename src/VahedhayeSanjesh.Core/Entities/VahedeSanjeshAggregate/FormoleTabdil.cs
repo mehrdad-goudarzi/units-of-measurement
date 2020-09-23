@@ -1,24 +1,24 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using VahedhayeSanjesh.Core.Exceptions;
 
-namespace VahedhayeSanjesh.Core.Entities.VahedhayeSanjesh
+namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
 {
     // فرمول تبدیل
     public class FormoleTabdil : ValueObject
     {
-        private const string RegExpression = @"[0-9a*+/-\(\)]*";
+        // @"[\da*+/-\(\)]*"
+        private char[] ValidCharacters = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', '*', '+', '-', '/', '(', ')', '.' };
         public FormoleTabdil(string value)
         {
             if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 throw new EmptyFormoleTabdilException();
 
-            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                throw new EmptyFormoleTabdilException();
-
-            if (!Regex.IsMatch(value, RegExpression))
+            if (value.Any(c => !ValidCharacters.Contains(c)))
                 throw new InvalidFormoleTabdilException();
+
+            if (value.IndexOf('a') == -1)
+                throw new FormolMoteghayerNadaradException();
 
             if (!IsBalanced(value))
                 throw new InvalidFormoleTabdilException();

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using VahedhayeSanjesh.Core.Exceptions;
 
-namespace VahedhayeSanjesh.Core.Entities.VahedhayeSanjesh
+namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
 {
     // بعد اندازه گیری
     public class BodeAndazeGiri : ValueObject

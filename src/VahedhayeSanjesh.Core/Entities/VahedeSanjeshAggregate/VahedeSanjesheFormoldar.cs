@@ -1,15 +1,15 @@
-namespace VahedhayeSanjesh.Core.Entities.VahedhayeSanjesh
+namespace VahedhayeSanjesh.Core.Entities.VahedeSanjeshAggregate
 {
-    public class VahedeSanjesheFormoldar : VahedeSanjeshBase
+    public class VahedeSanjesheFormoldar : VahedeSanjesh
     {
-        public VahedeSanjesheFormoldar(string nameFarsi, string nameEnglish, string symbol, BodeAndazeGiri bod)
+        public VahedeSanjesheFormoldar(string nameFarsi, string nameEnglish, string symbol, BodeAndazeGiri bod, FormoleTabdil formoleTabdilAzVahedePaye, FormoleTabdil formoleTabdilBeVahedePaye)
         : base(nameFarsi, nameEnglish, symbol, bod)
         {
+            FormoleTabdilAzVahedePaye = formoleTabdilAzVahedePaye;
+            FormoleTabdilBeVahedePaye = formoleTabdilBeVahedePaye;
         }
 
-        public string FormolAzPaye { get; private set; }
-        public string FormolBePaye { get; private set; }
-        public FormoleTabdil FormoleTabdilAzVahedePaye { get; set; }
-        public FormoleTabdil FormoleTabdilBeVahedePaye { get; set; }
+        public FormoleTabdil FormoleTabdilAzVahedePaye { get; private set; }
+        public FormoleTabdil FormoleTabdilBeVahedePaye { get; private set; }
     }
 }
